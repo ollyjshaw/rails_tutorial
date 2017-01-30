@@ -69,6 +69,9 @@ class UserTest < ActiveSupport::TestCase
     end
   end
 
+  test "authenticated? should return falsse for a user with nil digest" do
+    assert_not @user.authenticated?('')
+  end
   test "email should reject an invalid email" do
     invalid_addresses = %w[user@example,com user_at_foo.org user.name@example.
                                foo@bar_baz.com foo@bar+baz.com foo@example..com]
