@@ -9,6 +9,7 @@ class UsersEditTest < ActionDispatch::IntegrationTest
     log_in_as(@user)
     get edit_user_path(@user)
     assert_template 'users/edit'
+    assert_select "form.edit_user[action=?]", user_path
     patch user_path(@user), params: {
       user: {
         name: "",
