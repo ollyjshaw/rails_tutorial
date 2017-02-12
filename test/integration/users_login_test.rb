@@ -9,8 +9,14 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
   test "login with remembering" do
     log_in_as(@user, remember_me: '1')
     assert_not_empty cookies['remember_token']
+
+    assert_redirected_to @user
+    follow_redirect!
+    assert_template 'users/show'
+
     @user.reload
-    #assert_equal cookies['remember_token'], assigns(@user).remember_token
+
+    assert_not_empty cookies['remember_token']
     assert_not_empty @user.remember_digest
     assert @user.authenticated?(cookies['remember_token'])
   end
