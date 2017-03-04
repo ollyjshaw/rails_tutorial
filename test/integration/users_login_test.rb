@@ -18,7 +18,7 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
 
     assert_not_empty cookies['remember_token']
     assert_not_empty @user.remember_digest
-    assert @user.authenticated?(cookies['remember_token'])
+    assert @user.authenticated?(:remember, cookies['remember_token'])
   end
 
   test "login without remembering" do
