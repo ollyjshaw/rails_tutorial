@@ -31,6 +31,7 @@ group :test do
   gem 'minitest-reporters'
   gem 'guard'
   gem 'guard-minitest'
+  gem 'simplecov'
 end
 
 #group :production do
