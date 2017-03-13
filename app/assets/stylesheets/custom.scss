@@ -13,8 +13,8 @@ $gray-medium-light: #eaeaea;
 
 /* universal */
 
-body {
-  padding-top: 60px;
+.container {
+  background-color: black;
 }
 
 section {
@@ -59,8 +59,11 @@ p {
   line-height: 1.7em;
 }
 
-
 /* header */
+
+.navbar-default {
+  background-color: black;
+}
 
 #logo {
   float: left;
