@@ -20,7 +20,7 @@ most_recent:
 
 <% 30.times do |n| %>
 micropost_<%= n %>:
-  content: <%= Faker::ChuckNorris.fact %>
+  content: <%%Faker::ChuckNorris.fact %>
   created_at: <%= 42.days.ago %>
   user: michael
 <% end %>
