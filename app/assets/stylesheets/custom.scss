@@ -125,6 +125,8 @@ aside {
   }
   section {
     padding: 10px 0;
+    margin-left: 20px;
+    margin-right: 20px;
     margin-top: 20px;
     &:first-child {
       border: 0;
@@ -281,5 +283,11 @@ span.picture {
   margin-top: 10px;
   input {
     border: 0;
+  }
+}
+aside {
+  textarea {
+    height: 100px;
+    margin-bottom: 5px;
   }
 }
