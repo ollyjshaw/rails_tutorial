@@ -18,5 +18,8 @@ class UsersProfileTest < ActionDispatch::IntegrationTest
     @user.microposts.paginate(page: 1).each do |micropost|
       assert_match CGI.escapeHTML(micropost.content), response.body
     end
+
+    assert_select '#following'#, text: @user.following.count
+    assert_select '#followers'#, text: @user.followers.count
   end
 end
