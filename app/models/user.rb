@@ -23,6 +23,10 @@ class User < ApplicationRecord
     following << other_user
   end
 
+  def feed
+    Micropost.where("user_id IN (?) OR user_id = ?", following_ids, id)
+  end
+
   def unfollow(other_user)
     following.delete(other_user)
   end
@@ -34,10 +38,6 @@ class User < ApplicationRecord
   def remember
     self.remember_token = User.new_token
     update_attribute(:remember_digest, User.digest(remember_token))
-  end
-
-  def feed
-    Micropost.where(user_id: id)
   end
 
   def create_reset_digest
